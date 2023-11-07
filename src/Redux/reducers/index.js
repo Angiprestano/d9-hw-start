@@ -15,6 +15,15 @@ const mainReducer = (state = newState, action) => {
         },
       };
 
+    case "REMOVE_FROM_LIST":
+      return {
+        ...state,
+        list: {
+          ...state.list,
+          content: state.list.content.filter((el, i) => i !== action.payload),
+        },
+      };
+
     default:
       return state;
   }
